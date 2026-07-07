@@ -14,6 +14,13 @@ public class Student {
     public Student() {
     }
 
+    // Parameterized Constructor
+    // Used to create object in one line
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     // Getter method for id
     // Used to get/read the value of id.
     public int getId() {
