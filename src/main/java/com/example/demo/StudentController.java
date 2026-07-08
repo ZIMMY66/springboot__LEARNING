@@ -1,5 +1,6 @@
 package com.example.demo;
-
+import java.util.List;
+import java.util.ArrayList;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // Marks this class as a REST API Controller
@@ -75,8 +76,37 @@ public class StudentController {
     @GetMapping("/student")
     public Student getStudent() {
 
+        //to import multiple student or to make object for multiple student we use list
+
         // Creates Student Object
         return new Student(1, "Shubham");
     }
+// List
+// Stores multiple objects.
 
+// ArrayList
+// Creates an empty List.
+
+// add()
+// Adds an object into the List.
+
+    // Spring Boot automatically converts
+// List -> JSON Array.
+    // Returns multiple Student Objects as JSON
+    @GetMapping("/students")
+    public List<Student> getStudents()
+
+    {
+        // Creating an empty List
+        List<Student> students = new ArrayList<>();
+
+        // Adding Student objects into the List
+        students.add(new Student(1, "Shubham"));
+        students.add(new Student(2, "Rahul"));
+        students.add(new Student(3, "Aman"));
+
+        // Returning List
+        // Spring Boot converts List into JSON Array
+        return students;
+    }
 }
