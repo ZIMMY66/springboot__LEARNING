@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController // Marks this class as a REST API Controller
 public class StudentController {
+    // Our Temporary Database
+    List<Student> students = new ArrayList<>();
 
     // Handles GET request
     @GetMapping("/hello")
@@ -29,6 +31,7 @@ public class StudentController {
             // Converts JSON into Java Object
             @RequestBody Student student
     ) {
+        students.add(student);  // ← Actually SAVES the student now!
         return "Student Added Successfully";
     }
 
@@ -93,20 +96,26 @@ public class StudentController {
     // Spring Boot automatically converts
 // List -> JSON Array.
     // Returns multiple Student Objects as JSON
+//    @GetMapping("/students")
+//    public List<Student> getStudents()
+//
+//    {
+//        // Creating an empty List
+//        List<Student> students = new ArrayList<>();
+//
+//        // Adding Student objects into the List
+//        students.add(new Student(1, "Shubham"));
+//        students.add(new Student(2, "Rahul"));
+//        students.add(new Student(3, "Aman"));
+//
+//        // Returning List
+//        // Spring Boot converts List into JSON Array
+//        return students;
+//    }
+
     @GetMapping("/students")
-    public List<Student> getStudents()
-
-    {
-        // Creating an empty List
-        List<Student> students = new ArrayList<>();
-
-        // Adding Student objects into the List
-        students.add(new Student(1, "Shubham"));
-        students.add(new Student(2, "Rahul"));
-        students.add(new Student(3, "Aman"));
-
-        // Returning List
-        // Spring Boot converts List into JSON Array
-        return students;
+    public List<Student> getStudents() {
+        return students;  // ← Returns whatever was actually POSTed!
     }
 }
+
