@@ -173,6 +173,29 @@ GET /students
 
 ---
 
+## ✅ Day 7
+
+### Topics Covered
+
+- Layered Architecture
+- Controller
+- Service
+- Repository
+- Business Logic
+- Separation of Concerns (SoC)
+- Single Responsibility Principle (SRP)
+
+### Concepts Learned
+
+- Why business logic should not be written in the Controller.
+- Responsibilities of Controller, Service, and Repository.
+- How a Spring Boot application processes a request.
+- Importance of clean and maintainable application architecture.
+
+### Outcome
+
+✔ Understood the architecture of a professional Spring Boot application and the role of each layer.
+
 # 📌 Concepts Learned
 
 ✔ Spring Boot Basics
