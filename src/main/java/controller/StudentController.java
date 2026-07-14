@@ -1,10 +1,12 @@
-package com.example.demo;
+package controller;
 import java.util.List;
 import java.util.ArrayList;
+
+import model.Student;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // Marks this class as a REST API Controller
-public class StudentController {
+public class StudentController  {
     // Our Temporary Database
     List<Student> students = new ArrayList<>();
 
@@ -64,15 +66,33 @@ public class StudentController {
 
     // Handles DELETE request
     // Used to delete student
+//    @DeleteMapping("/student/{id}")
+//    public String deleteStudent(
+//
+//            // Takes id from URL
+//            @PathVariable int id
+//    ) {
+//        return "Student " + id +
+//                " deleted successfully";
     @DeleteMapping("/student/{id}")
-    public String deleteStudent(
+    public String deleteStudent(@PathVariable int id) {
 
-            // Takes id from URL
-            @PathVariable int id
-    ) {
-        return "Student " + id +
-                " deleted successfully";
+        // Loop through every student
+        for (Student s : students) {
+
+            // Check if this student's id matches
+            if (s.getId() == id) {
+
+                // Remove from our list
+                students.remove(s);
+                return "Student " + id + " deleted successfully";
+            }
+        }
+
+        // If we reach here, student was not found
+        return "Student with id " + id + " not found";
     }
+    
 
     // Returns Java Object
     // Spring Boot automatically converts Object into JSON
