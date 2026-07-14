@@ -195,6 +195,43 @@ GET /students
 ### Outcome
 
 ✔ Understood the architecture of a professional Spring Boot application and the role of each layer.
+---
+
+## ✅ Day 8
+
+### Topics Covered
+
+- Java Packages
+- Professional Project Structure
+- Controller Package
+- Model Package
+- Service Package
+- `@Service` Annotation
+- Introduction to Spring Beans
+
+### Practical Work
+
+- Refactored the project into a professional package structure.
+- Created separate packages:
+  - `controller`
+  - `model`
+  - `service`
+- Moved existing classes into their respective packages.
+- Created the first `StudentService` class.
+- Learned how `@Service` marks a class as a Spring-managed Bean.
+
+### Concepts Learned
+
+- Why projects are divided into packages.
+- Responsibilities of Controller, Model, and Service.
+- How Spring scans `@Service` classes.
+- How Spring automatically creates and manages Beans.
+
+### Outcome
+
+✔ Refactored the project into a clean layered architecture and created the first Service layer following Spring Boot best practices.
+
+---
 
 # 📌 Concepts Learned
 
