@@ -1,4 +1,4 @@
-package model;
+package com.example.demo.model;
 
 // This class represents a Student object.
 // It is also called a Model or POJO (Plain Old Java Object).

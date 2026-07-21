@@ -1,16 +1,24 @@
-package controller;
+package com.example.demo.controller;
+
 import java.util.List;
 import java.util.ArrayList;
 
-import model.Student;
+import com.example.demo.service.StudentService;
+import com.example.demo.model.Student;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // Marks this class as a REST API Controller
-public class StudentController  {
+public class StudentController {
+
+    @Autowired
+    private StudentService studentService;
+
     // Our Temporary Database
     List<Student> students = new ArrayList<>();
-
     // Handles GET request
+
     @GetMapping("/hello")
     public String hello() {
         return "Hello Shubham";
@@ -92,7 +100,10 @@ public class StudentController  {
         // If we reach here, student was not found
         return "Student with id " + id + " not found";
     }
-    
+    @GetMapping("/service")
+    public String serviceMessage() {
+        return studentService.getMessage();
+    }
 
     // Returns Java Object
     // Spring Boot automatically converts Object into JSON
@@ -138,4 +149,5 @@ public class StudentController  {
         return students;  // ← Returns whatever was actually POSTed!
     }
 }
+
 
